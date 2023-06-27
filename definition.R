@@ -22,7 +22,7 @@ Dataset <- read.table("./Experimental-Dataset.csv", header = TRUE,
 ### Principal Component Analysis
 ### The associated code corresponds to the seconde implemented PCA (refer to the manuscript for more details).
 res <- PCA(Dataset[,c(3,4,5,6,7,8,9,10,11,12,13)], scale.unit = TRUE, ncp = 5, graph = FALSE)
-km.res <- kmeans(res, 4, nstart = 25)
+km.res <- kmeans(res$ind$coord, 4, nstart = 25)
 plot.PCA(res, axes = c(1, 2), choix = "ind", habillage = "none",
          col.ind.sup = "blue", col.quali = "magenta", label = c("ind", "ind.sup", "quali"), 
          new.plot = TRUE)
